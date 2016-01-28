@@ -1,5 +1,4 @@
 // Implementation of Merge Sort
-// Used pointers for the sake of using it. they aren't even needed
 
 #include <stdio.h>
 void merge(int, int, int);
@@ -9,7 +8,6 @@ int array[50];
 
 int main (void)
 {
-	int *pointer = &array[0];
 	int count;
 	printf("Enter the Number of Elements (max 50)\n");
 	scanf("%d", &count);
@@ -18,7 +16,7 @@ int main (void)
 	for (int i = 0; i < count; i++)
 	{
 		printf("Element Number %d\n", i + 1);
-		scanf("%d", (pointer + i));
+		scanf("%d", &array[i]);
 	}
 
 	printf("Unsorted Array\n");
