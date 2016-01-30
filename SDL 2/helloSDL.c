@@ -32,7 +32,7 @@ int main ()
             
             SDL_UpdateWindowSurface( window );
 
-            SDL_Delay( 12000 );
+            SDL_Delay( 2000 );
         }
     }
 
