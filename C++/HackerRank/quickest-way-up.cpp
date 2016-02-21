@@ -1,13 +1,165 @@
 //https://www.hackerrank.com/challenges/the-quickest-way-up
 
-// This solution doesn't work. Yet to correct it.
 
 #include <iostream>
 #include <stdlib.h>
-#include <queue>
 
 using namespace std;
 
+int returnmin(int, int);
+
+int main ()
+{
+	int specialvertices[31], specialindex, doesbelong, adjmatrix[101][101], visited[101], distance[101];
+
+	int snacount, ladcount, test;
+
+	int holdinglist[101];
+	int w, min, index, v;
+
+
+	cin>>test;
+
+	for (int z = 0; z < test; z++)
+	{
+		// Making everything inaccessible in adjmatrix
+
+		for (int i = 1; i < 101; i++)
+		{
+			distance[i] = 9999;
+			visited[i] = 0;
+
+			for (int j = 1; j < 101; j++)
+			{
+				adjmatrix[i][j] = -1;
+			}
+		
+		}
+
+		// Special Vertices stores vertices which are foots of ladders or the mouths of snakes
+		for (int i = 0; i < 31; i++)
+			specialvertices[i] = 0;
+
+			specialindex = -1;
+
+
+
+		cin>>ladcount;
+		for (int i = 0, from, to; i < ladcount; i++)
+		{
+			cin>>from;
+			cin>>to;
+			specialvertices[++specialindex] = from;
+			adjmatrix[from][to] = 0;
+
+		}
+
+		cin>>snacount;
+		for (int i = 0, from, to; i < snacount; i++)
+		{
+			cin>>from;
+			cin>>to;
+			specialvertices[++specialindex] = from;
+			adjmatrix[from][to] = 0;
+		}
+		
+		// Filling generic edges. They cost one die roll
+		for (int i = 1; i < 101; i++)
+		{
+			doesbelong = 0;
+
+			for (int a = 0; a < 31; a++)
+			{
+				if (i == specialvertices[a])
+				{
+					doesbelong = 1;
+					break;
+				}
+			}
+
+			if (doesbelong == 0)
+			{
+				for (int j = 1, temp = i + j; j < 7 && temp < 101; j++, temp++)
+				{	
+					// Each die roll costs 1, so reachable places are marked 1
+					adjmatrix[i][temp] = 1;
+
+				}		
+
+			}
+		
+		}
+
+		// Graph Algorithm here
+		// Implementing Dijkstra's here. Finding the least cost
+		// from 1 to all other places.
+
+		adjmatrix[1][1] = 0;		
+		holdinglist[0] = 1;
+		w = 0;
+		min = 9999;
+		distance[1] = 0;
+
+		while (1)
+		{
+			
+			v = holdinglist[w];
+			visited[v] = 1;
+
+			// Recording distances from v via different paths
+			// Finding the least weighted node and adding it to holdinglist
+
+			for (int i = 1; i < 101; i++)
+			{
+				if (adjmatrix[v][i] != -1)
+				{
+					distance[i] = returnmin(distance[i], distance[v] + adjmatrix[v][i]);
+
+					if (adjmatrix[v][i] < min && visited[i] == 0)
+					{
+						min = adjmatrix[v][i];
+						index = i;
+					}
+
+				}
+			}
+
+
+			min = 9999;
+
+			if (index == holdinglist[w])
+				break;
+			else
+				holdinglist[++w] = index;			
+
+		}
+
+	
+		cout << distance[100] << endl;
+
+	}
+
+
+
+	return 0;
+}
+
+
+int returnmin (int x, int y)
+{
+
+	if (x > y)
+		return y;
+	else
+		return x;
+}
+
+
+
+
+
+/*
+// This solution uses linked lists but it doesn't work. Yet to correct it.
 
 int main () 
 {
@@ -178,4 +330,4 @@ int main ()
 
 	return 0;
 }
-
+*/
