@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <limits.h>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ int returnmin(int, int);
 
 int main ()
 {
-	int specialvertices[31], specialindex, doesbelong, adjmatrix[101][101], visited[101], distance[101];
+	int specialvertices[40], specialindex, doesbelong, adjmatrix[101][101], visited[101], distance[101];
 
 	int snacount, ladcount, test;
 
@@ -26,7 +27,7 @@ int main ()
 
 		for (int i = 1; i < 101; i++)
 		{
-			distance[i] = 9999;
+			distance[i] = INT_MAX;
 			visited[i] = 0;
 
 			for (int j = 1; j < 101; j++)
@@ -37,7 +38,7 @@ int main ()
 		}
 
 		// Special Vertices stores vertices which are foots of ladders or the mouths of snakes
-		for (int i = 0; i < 31; i++)
+		for (int i = 0; i < 40; i++)
 			specialvertices[i] = 0;
 
 			specialindex = -1;
@@ -68,7 +69,7 @@ int main ()
 		{
 			doesbelong = 0;
 
-			for (int a = 0; a < 31; a++)
+			for (int a = 0; a < 40; a++)
 			{
 				if (i == specialvertices[a])
 				{
@@ -115,17 +116,22 @@ int main ()
 				{
 					distance[i] = returnmin(distance[i], distance[v] + adjmatrix[v][i]);
 
-					if (adjmatrix[v][i] < min && visited[i] == 0)
-					{
-						min = adjmatrix[v][i];
-						index = i;
-					}
-
 				}
+			
+			}
+			
+			for (int i = 1; i < 101; i++)
+			{
+				if (distance[i] < min && visited[i] == 0)
+					min = distance[i], index = i;
+			
 			}
 
 
-			min = 9999;
+			min = INT_MAX;
+
+			// If it returns the same element as before. If we eliminate this step, we can use a for loop and set it to run
+			// V - 1 times.
 
 			if (index == holdinglist[w])
 				break;
@@ -134,6 +140,8 @@ int main ()
 
 		}
 
+		if (distance[100] == INT_MAX)
+			distance[100] = -1;
 	
 		cout << distance[100] << endl;
 

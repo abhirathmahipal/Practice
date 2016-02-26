@@ -58,6 +58,7 @@ void dijkstra(int graph[V][V], int src)
 
 	dist[src] = 0;
 
+	// We need to iterate 8 times (8 other remaining edges other than the source) i.e number of vertices - 1
 	for (int count = 0; count < V - 1; count++)
 	{
 		int u = minDistance(dist, sptSet);
@@ -66,7 +67,8 @@ void dijkstra(int graph[V][V], int src)
 
 		for (int v = 0; v < V; v++)
 		{
-			if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v])
+			// graph[u][v] in if means if it isn't zero
+			if (graph[u][v] && dist[u] + graph[u][v] < dist[v])
 				dist[v] = dist[u] + graph[u][v];
 		}
 
