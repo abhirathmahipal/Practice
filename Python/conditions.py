@@ -9,3 +9,26 @@ elif num == 0:
 else:
 	print("Negative Number")
 
+# Nested Conditions
+
+num1 = int(input("Enter Another Number: "))
+
+if num1 >= 0:
+	
+	if num1 == 0:
+		print("Zero")
+	else:
+		print("Positive Number")
+
+else:
+	print("Negative Number")
+
+
+
+
+
+
+
+
+
+
