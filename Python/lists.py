@@ -26,6 +26,15 @@ print("Is c a part of list1?", result)
 result = 'd' in list1
 print("Is d a part of list1?", result)
 
+# List 1
+samplelist = ['Hey', 'Hi', 'etc']
+samplelist2 = ['ohh', 'Apples', 'banana']
+
+mergelist = [samplelist, samplelist2]
+samplelist.remove('Hey')
+
+print(mergelist)
+
 
 
 
