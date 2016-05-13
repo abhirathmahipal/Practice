@@ -1,0 +1,1 @@
+ A repository for practice and code as I work my way through SICP.
