@@ -11,7 +11,7 @@ public:
 };
 int main()
 {
-	letters object_array[10] = {97, 98, 99, 100, 101, 102, 103, 104, 105, 106};
+	letters object_array[10] = {97, 'b', 99, 100, 101, 102, 103, 104, 105, 106};
 
 	for (int i = 0; i < 10; i++)
 		cout << object_array[i].get_ch();
