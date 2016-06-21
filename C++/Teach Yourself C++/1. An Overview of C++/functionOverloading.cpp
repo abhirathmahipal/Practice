@@ -6,9 +6,9 @@ long absolute(long);
 double absolute(double);
 
 int main(){
-	
+
 	cout << "Absolute Value of - 10 " << absolute(-10) << endl;
-	cout << "Absolute Value of 1000000000000000 " << absolute(100000000000) << endl;
+	cout << "Absolute Value of 100000000000 " << absolute(100000000000) << endl;
 	cout << "Abolute Value of -10.01 " << absolute(-10.01) << endl;
 
 	return 0;
