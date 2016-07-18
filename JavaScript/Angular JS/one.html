@@ -1,0 +1,21 @@
+<!--http://viralpatel.net/blogs/angularjs-introduction-hello-world-tutorial/-->
+
+
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Hello World, Angular JS</title>
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+
+<body>
+
+Enter some text here:
+<input type="text" ng-model="sometext" />
+
+<h2>You typed in {{ sometext }}</h2>
+
+<h4>Uppercase: {{sometext | uppercase}}</h4>
+<h3>Lowercase: {{sometext | lowercase}}</h3>
+</body>
+</html>

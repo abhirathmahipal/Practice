@@ -1,0 +1,68 @@
+<!--http://www.w3schools.com/-->
+
+<html ng-app="myApp">
+    <head>
+        <title>Getting the hang of Angular JS</title>
+        
+        <style>
+            input.ng-invalid {
+                background-color: lightblue;
+            }
+        </style>
+        <script type="text/javascript" src="angular.js"></script>
+    </head>
+    <body>
+        <div ng-init="names=['Jani', 'Abhi', 'Ravi']">
+            <ul>
+                <li ng-repeat ="x in names">
+                    {{ x }}
+                </li>
+            </ul>
+            
+        </div>
+        
+        <div class="w3TestDirective">
+            
+        </div>
+        
+        <div ng-init="firstName='John'">
+            <p>The name is <span ng-bind="firstName"></span></p>
+            
+            <p>My first expression: {{5 + 5}}</p>
+            
+            <input name="myName" ng-model="myText" required>
+            <p>{{myText}}</p>
+        </div>
+        <script>
+        var app = angular.module("myApp", []);
+        app.directive("w3TestDirective", function() {
+            return {
+                template: "<h1>Made by a directive! </h1>"
+            };
+        });
+        </script>
+        
+        <div ng-app="" ng-init="mySwitch=true">
+        <p>
+            <button ng-disabled="mySwitch">Click Me!</button>
+        </p>
+        <p> {{ mySwitch }}</p>
+        <button disabled>Click Me</button>
+        <p ng-hide="true">I am invisible</p>
+        <p ng-hide="true">Even Harry Potter's cloak is no match!</p>
+        
+        
+        <form name="myForm">
+            <input name="myInput" ng-model="myInput" type="email">
+        
+        </form>
+        
+        <p>The input's valid state is:</p>
+        <h1>{{myForm.myInput.$valid}}</h1>
+        </div>
+        
+    </body>
+    
+    
+    
+</html>
