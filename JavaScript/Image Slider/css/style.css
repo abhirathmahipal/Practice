@@ -1,0 +1,60 @@
+body html {
+    width: 100%;
+    font-family: 'Roboto';
+    color: #727272;
+}
+
+.wrapper {
+    width: 460px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.slider {
+    position: absolute;
+}
+
+.slider img {
+    width: 100%;
+    float: left;
+    display: none;
+}
+
+img.showImage {
+    display: inline-block;
+}
+
+img.hideImage {
+    display: none;
+}
+
+button:focus {outline:0;}
+
+button.next, button.prev {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    
+    background-color:#212121;
+    color:#fff;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 20px;
+}
+
+.slider button:hover {
+    opacity: 0.6;
+    cursor:pointer;
+}
+
+.next {
+    right: 0;
+    opacity: 0.4;
+}
+
+.prev {
+    left: 0;
+    opacity: 0.4;
+}

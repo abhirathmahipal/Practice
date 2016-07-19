@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    
+    <link rel ="stylesheet" type="text/css" href="css/style.css" />
+    <title>Pure JS Image Slider</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Simple Image Slider</h2>
+        
+        <div class="slider">
+            <img src="img/India_Gate_600x400.jpg" height="100">
+            <img src="img/fff.png">
+            <img src="img/bay6-600x400.jpg" alt="">
+            <button class="prev">&#60</button>
+            <button class="next">&#62</button>
+        </div>        
+    </div>
+    
+    <script>
+    window.onload = function() {
+        var slider = document.getElementsByClassName('slider')[0],
+            images = slider.getElementsByTagName('img'), counter = 0,
+            nextBtn = slider.getElementsByClassName('next')[0],
+            prevBtn = slider.getElementsByClassName('prev')[0];
+        
+        function showImage(index) {
+            for (var i = 0; i < images.length; i += 1)
+            {
+                images[i].className = 'hideImage';
+            }
+            images[index].className = 'showImage';
+        }
+        
+            
+        function nextImg() {
+            if (counter < images.length - 1) {
+                counter += 1;
+            }
+            else {
+                counter = 0;                
+            }
+            showImage(counter);
+        }
+        
+        function prevImg() {
+            if (counter > 0) {
+                counter -= 1;
+            } else {
+                counter = images.length - 1;
+            }
+            
+            showImage(counter);
+        }
+        
+        nextBtn.onclick = nextImg;
+        prevBtn.onclick = prevImg;
+        
+        showImage(counter);
+    };
+    </script>
+</body>
