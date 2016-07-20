@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+
+<body>
+    <h2>Please fill in the following details carefully.</h2>
+    
+    <div id="form_box">
+        <form name="contact" onsubmit="return validateFormOnSubmit(this)" action ="" method="GET">
+        <label>First Name</label>
+        <input type="text" name="first_name" />
+        <div id="first_name_error" class="error"></div>
+        <label>Last Name</label>
+        <input type="text" name="nick_name" />
+        <div id="last_name_error" class="error"></div>
+           
+        <label>Email</label>
+        <input type="email" name="email" />
+        <div id="email_error" class="error">
+        </div>
+        
+        <label>Phone</label>
+        <input type="text" name="phone" />
+        <div id="phone-error" class="error"></div>
+        
+        <label>I Prefer</label>
+        <input type="radio" name="pet" id="cats" />Cats
+        <input type="radio" name="pet" id="dogs" /> Dogs
+        <div class="error" id="pet_error"></div>
+        
+        <label>Favourite Number Between 1 and 50</label>
+        <input type="number" name="favourite_number" />
+        <div class="error" id="favourite_number_error"></div>
+        
+        <button type="submit" id="submit">Submit</button>
+        
+            
+            
+        </form>
+    </div>
+</body>
+</html>
