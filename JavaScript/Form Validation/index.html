@@ -2,13 +2,14 @@
 <html>
 <head>
     <title>Form Validation</title>
+    <link rel="stylesheet" src="style.css" />
 </head>
 
 <body>
     <h2>Please fill in the following details carefully.</h2>
     
     <div id="form_box">
-        <form name="contact" onsubmit="return validateFormOnSubmit(this)" action ="" method="GET">
+        <form name="contact" onsubmit="return validateFormOnSubmit(this);" method="GET">
         <label>First Name</label>
         <input type="text" name="first_name" />
         <div id="first_name_error" class="error"></div>
@@ -40,5 +41,7 @@
             
         </form>
     </div>
+    
+    <script type="text/javascript" src="validation.js"></script>
 </body>
 </html>
