@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myNinjaApp">
   <head>
     <title>TheNetNinja Angular Playlist</title>
     <script src="app/lib/angular.js"></script>
+    <script src="app/app.js"></script>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <!-- ng-init can help initialise data, but it's a very bad practice to do so -->
+  <body ng-init="ninjas=['yoshi', 'crystal', 'naruto', 'ryu']">
   	<input type="text" ng-model="favFood" placeholder="Enter your fav food item" />
-  	<p>Your fav food item is {{ favFood }}</p>
-  	
-  	
+  	<p>{{5 * 5}}</p>
+  	<ul>
+  		<li ng-repeat="ninja in ninjas">{{ ninja }}</li>
+  	</ul>
+
 
   </body>
 </html>
