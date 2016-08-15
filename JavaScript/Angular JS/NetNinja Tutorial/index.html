@@ -7,13 +7,17 @@
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
   </head>
   <!-- ng-init can help initialise data, but it's a very bad practice to do so -->
-  <body ng-init="ninjas=['yoshi', 'crystal', 'naruto', 'ryu']">
-  	<input type="text" ng-model="favFood" placeholder="Enter your fav food item" />
-  	<p>{{5 * 5}}</p>
-  	<ul>
-  		<li ng-repeat="ninja in ninjas">{{ ninja }}</li>
-  	</ul>
+  <body>
+  	<div ng-controller="NinjaController">
+  		<input type="text" ng-model="search" />
+  		<ul>
+  			<li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search">
+  			{{ ninja.name }} - {{ ninja.rate | currency: '$' }}
+  			</li>
 
+  		</ul>
+
+  	</div>
 
   </body>
 </html>
