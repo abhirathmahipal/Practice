@@ -1,0 +1,35 @@
+<!--http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>I'm in a React app!</title>
+  </head>
+  <body>
+    <div id="react-app"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+  </body>
+  
+  <script>
+  
+  var rootElement = 
+    React.createElement('div', {},
+        React.createElement('h1', {}, "Contacts"),
+            React.createElement('ul', {}, 
+                React.createElement('li', {},
+                    React.createElement('h2', {}, "James Nelson"),
+                    React.createElement('a', {href: 'mailto:example'}, 'example')
+                    ),
+                    React.createElement('li', {},
+                        React.createElement('h2', {}, "John Doe"),
+                        React.createElement('a', {href: 'mailto:example'}, 'example')
+                        )
+                    )
+                );
+                
+     ReactDOM.render(rootElement, document.getElementById('react-app'));
+      
+  </script>
+</html>
