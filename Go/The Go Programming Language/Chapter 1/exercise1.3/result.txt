@@ -1,0 +1,4 @@
+time-echo1.go takes 0.0 seconds
+time-echo3.go takes 0.0 seconds
+
+I should have probably run it a million times instead of running it just once. Perhaps sometime later.
