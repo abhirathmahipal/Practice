@@ -1,0 +1,14 @@
+Chapter - 1
+
+An int is used instead of a char to read a character input so that we can be sure the variable is large enough to store the EOF variable.
+
+EOF variable is defined by an integer in <stdio.h>. To be on the safer side and not causing an overflow an int is used.
+
+Sometimes it's better to use a long. longs are atleast of 32 bytes in size. On some machines ints take up 16 bits. You might end up overflowing them with ease on some machines
+
+The standard library ensures that an input text stream appears as a sequence of lines, each terminated by a newline.
+
+for (nc = 0; getchar() != EOF; ++nc)
+    ;
+
+In case you need a for loop to be empty. It can be done this way. By definition the for loop needs a body. Therefore the ; after the for loop.
