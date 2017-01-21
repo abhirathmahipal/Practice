@@ -1,0 +1,17 @@
+some lines longer than 80 chars
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+
+some lines that can be reversed
+abhirath mahipal
+rajiv raj
+am i running out of names?
+I think so
+
+remove trailing spaces and tabs and delete blank lines
+non empty line followed by two blank lines. Should not have any now.
+
+
+yup. these two lines stick together now.
+line wti trailing spaces   
