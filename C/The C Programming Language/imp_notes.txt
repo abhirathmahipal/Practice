@@ -19,3 +19,25 @@ In case you need a for loop to be empty. It can be done this way. By definition 
 chars are just small integers (8 bits).
 
 Functions are pass by value. They pass a temporary value. However when arrays are passed, only the address of the array is passed. There is no copying of array elements.
+
+local variables created as a result of function calls are also called automatic variables.
+
+If global variables are declared before the function definition, the functions can use the variable without requiring extern. However if  afunction uses a global variable called max that will be processed by the compiler before it reaches the actual definition of max extern needs to be used.
+
+main() can be used instead of main(void). main(void) is written for compatability with older compilers.
+
+Chapter - 2
+
+Floating points may be done in single precision. You long double type for extended precision.
+
+Variable names are made up of letters and digits. _ can also be used. Not advisable to start variables with _ because libraries often use such names. Traditional C practice is to use lower case for variable names and all upper case for symbolic constants.
+
+The standard guarantees uniqueness of external variables only for n characters and some specified case. Read more about it here
+http://stackoverflow.com/questions/1980939/kr-at-least-the-first-31-characters-of-an-internal-name-are-significant
+
+long int counter is the same as long counter; short int sh is the same as short sh;
+
+A long constant is written with a terminal l. unsigned constants are written with a terminal u or U. The suffix UL indicates unsigned long.
+Floating point constants contain a decimal point or an exponent (1e-2) or both. The value of an integer can be specified in octal or hexadecimal instead of decimal. A leading 0(zero) indicated octal representation. ox represents hexadecimal. octal and hexadecimal can also be followed by L to make them long and U to make them unsigned. 0XFUL is an unsigned long constant with the value 15 decimal.
+
+A char constant is an integer written as one character within single quotes such as 'x'. The value of a character is the numeric value of the character in the machines' character set. In ASCII '0' has the numeric value 48. Character constants participate in numeric operations just as any other integers (they are mostly used for comparisons eg c == 'a')
