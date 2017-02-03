@@ -41,3 +41,12 @@ A long constant is written with a terminal l. unsigned constants are written wit
 Floating point constants contain a decimal point or an exponent (1e-2) or both. The value of an integer can be specified in octal or hexadecimal instead of decimal. A leading 0(zero) indicated octal representation. ox represents hexadecimal. octal and hexadecimal can also be followed by L to make them long and U to make them unsigned. 0XFUL is an unsigned long constant with the value 15 decimal.
 
 A char constant is an integer written as one character within single quotes such as 'x'. The value of a character is the numeric value of the character in the machines' character set. In ASCII '0' has the numeric value 48. Character constants participate in numeric operations just as any other integers (they are mostly used for comparisons eg c == 'a')
+
+hexadecimal and octal can also be used after escape sequences. Bell or \a can be represented as \007 and \x7
+
+Strings can be concatenated at compile time
+"hello," " world" is equivalent to "hello, world"
+
+enum boolean {NO, YES};
+enum months {JAN = 1, FEB}; // it continues the pattern. Feb becomes 2, march 3 and so on.
+Enums provide a convinient way to associate constant values with names, an alternative to #define with the advantage that the values can be generated automatically.
