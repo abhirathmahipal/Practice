@@ -50,3 +50,21 @@ Strings can be concatenated at compile time
 enum boolean {NO, YES};
 enum months {JAN = 1, FEB}; // it continues the pattern. Feb becomes 2, march 3 and so on.
 Enums provide a convinient way to associate constant values with names, an alternative to #define with the advantage that the values can be generated automatically.
+
+An explicitly initialized automatic variable is initialised each time the function or block it is in is entered. The initialiser may be any expression.
+
+External and static variables are initialised to zero by default. Automatic variables for which there is no explicit initialiser have undefined values.
+
+const qualifier indicates that the elements will not be altered.
+
+% operator works only with ints. % cannot be applied to float or double.
+
+&& has higher precedence than ||. != and == have higher precedence than =.
+
+In general, the only automatic conversions are those that convert a "narrower" operanad into a "wider" one without losing information. Eg float + int. Expressions that lose information like assigning a longer integer to a smaller integer may draw a warning but they are not illegal.
+
+arithmetic with chars. Printing a char is guaranteed that it will never be negative. 
+
+When chars are converted into ints, the language does not specify whether variables of type char are signed or unsigned. When a char is converted to an int it can produce a negative integer on some machines.machines
+
+For portability specify signed or unsigned if non character data is to be stored in char variables.
