@@ -68,3 +68,23 @@ arithmetic with chars. Printing a char is guaranteed that it will never be negat
 When chars are converted into ints, the language does not specify whether variables of type char are signed or unsigned. When a char is converted to an int it can produce a negative integer on some machines.machines
 
 For portability specify signed or unsigned if non character data is to be stored in char variables.
+
+In some machines chars may be promoted to int by adding zeroes to the end. Hence they always remain positive. Read the point above. Give an int the modifier unsigned in case you want to use it as a char.
+
+Normally the "lower" type is promoted to the "higher" type. char and shorts to int, ints to double, ints to long double etc. However floats are not converted to double. the main reason they use floats is to save storage in large arrays or to save time since doubles are more resource intensive.
+
+conversion rules are more complicated when unsigned operands are involved. http://stackoverflow.com/questions/25054477/clarity-of-1l-1u-and-1l-1ul
+
+Long (or higher) integers are converted to shorter ones by dropping the excess high-order bits. This can cause information loss.
+
+type conversion also takes place when arguments are passed to functions. In the absence of a function prototype char and short become int, float becomes double. This is why we declare functions to be int and double even when the function is called with char and float.
+
+coerced conversion with a case. (type-name) expression.
+Eg:- 
+double sqrt(double);
+root = sqrt(2) // automatically coerced into a double to perform operations.
+
+pre and post increment operators
+x = 5;
+n = ++x; // x becomes 6, n becomes 6
+n = x++; // n gets the value 5 and x becomes 6 after the assignment
