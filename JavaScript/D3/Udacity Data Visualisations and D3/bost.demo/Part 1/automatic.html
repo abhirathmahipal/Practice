@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Automatic</title>
+</head>
+<body>
+<script src="../../../d3.js"></script>
+<div class="chart">
+</div>
+
+<script>
+    var data = [4, 3, 11, 50];
+    d3.select(".chart")
+      .selectAll("div")
+        .data(data)
+      .enter().append("div")
+        .style("width", function(d) { return d * 10 + "px"; })
+        .text(function(d) { return d; });
+    
+</body>
+</html>
