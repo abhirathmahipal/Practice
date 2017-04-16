@@ -1,5 +1,6 @@
 /*** includes ***/
 #include <stdlib.h>
+#include <string.h>
 #include <termios.h>
 #include <errno.h>
 #include <unistd.h>
@@ -92,29 +93,62 @@ int getWindowSize(int *rows, int *cols) {
     }
 }
 
+/*** append buffer ***/
+
+struct abuf {
+    char *b;
+    int len;
+};
+
+#define ABUF_INIT {NULL, 0}
+
+void abAppend(struct abuf *ab, const char *s, int len) {
+    char *new = realloc(ab->b, ab->len + len);
+
+    if (new == NULL) return;
+    memcpy(&new[ab->len], s, len);
+    ab->b = new;
+    ab->len += len;
+}
+
+void abFree(struct abuf *ab) {
+    free(ab->b);
+}
+
 /*** output ***/
 
-void editorDrawRows() {
+void editorDrawRows(struct abuf *ab) {
     for (int row_num = 0; row_num < E.screenrows; row_num++) {
-        write(STDOUT_FILENO, "~", 1);
+        abAppend(ab, "~", 1);
 
+        abAppend(ab, "\x1b[K", 3);
         if (row_num < E.screenrows - 1) {
-            write(STDERR_FILENO, "\r\n", 2);
+           abAppend(ab, "\r\n", 2);
         }
     }
 }
 
 void editorRefreshScreen() {
+
+    struct abuf ab = ABUF_INIT;
+
+    // l is the command and 25 is the argument. Some old terminals may not 
+    // understand 25 and will ignore them
+    abAppend(&ab, "\x1b[?25l", 6); 
     // \x1b is 27 which is an escape sequence
     //  All escape sequences start with 27[
     // J is the command to clear the screen, argument comes before it (2)
     // the argument 2 specifies it to clear the entire screen
-    write(STDOUT_FILENO, "\x1b[2J", 4);
-    write(STDOUT_FILENO, "\x1b[H", 3);
+    
+    // abAppend(&ab, "\x1b[2J", 4); no longer required, since better to clear line by line
+    abAppend(&ab, "\x1b[H", 3);
 
-    editorDrawRows();
+    editorDrawRows(&ab);
+    abAppend(&ab, "\x1b[H", 3);
+    abAppend(&ab, "\x1b[?25h", 6);
 
-    write(STDERR_FILENO, "\x1b[H", 3);
+    write(STDOUT_FILENO, ab.b, ab.len);
+    abFree(&ab);
 }
 
 /*** input ***/
