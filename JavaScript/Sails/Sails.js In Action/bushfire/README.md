@@ -1,3 +1,3 @@
-# bushfire
+Code as I read the book Sails.js in Action.
 
-a [Sails](http://sailsjs.org) application
+I may have skipped certain parts of chapters and yet marked them as complete.
