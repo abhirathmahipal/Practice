@@ -19,8 +19,8 @@ module.exports.bootstrap = function(cb) {
 
     // If there's at least one log the number to the console.
     if (numVideos > 0) {
-      console.log('Existing video records: ', numVideos)
-      return cb();
+      // return cb();
+      return createTestUsers();   
     }
 
     // Add machinepack-youtube as a depedency
@@ -50,10 +50,59 @@ module.exports.bootstrap = function(cb) {
           if (err) {
             return cb(err);
           }
-          console.log(foundVideos);
-          return cb();
+          // return cb();
+          return createTestUsers();   
         });
       },
     });
   });
+
+  function createTestUsers() {
+
+    var Passwords = require('machinepack-passwords');
+    var Gravatar = require('machinepack-gravatar');
+
+    User.findOne({
+      email: 'sailsinaction@gmail.com'
+    }).exec(function(err, foundUser) {
+      if (foundUser){
+       return cb();
+      }
+
+      Passwords.encryptPassword({
+        password: 'abc123',
+      }).exec({
+        error: function(err) {
+          return cb(err);
+        },
+        success: function(result) {
+
+          var options = {};
+
+          try {
+            options.gravatarURL = Gravatar.getImageUrl({
+              emailAddress: 'sailsinaction@gmail.com'
+            }).execSync();
+
+          } catch (err) {
+            return cb(err);
+          }
+
+          options.email = 'sailsinaction@gmail.com';
+          options.encryptedPassword = result;
+          options.username = 'sailsinaction';
+          options.deleted = false;
+          options.admin = false;
+          options.banned = false;
+          User.create(options).exec(function(err, createdUser) {
+            if (err) {
+              return cb(err);
+            }
+            return cb();
+          });
+        }
+      });
+    });
+  }
 };
+
