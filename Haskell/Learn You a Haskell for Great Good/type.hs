@@ -1,0 +1,12 @@
+-- :t 'a' -> :t gives the type
+-- :: (read has has type of) returns true or false
+-- functions we can choose to give them an explicit type declaration. Normally good practice unless the function is very small
+-- removeNonUpperCase :: [Char] -> [Char] (takes in a string and gives back a string)
+-- multiple input and output eg addThree :: Int -> Int -> Int -> Int (there is no special distinction between the parameters and the return types)
+-- Int is bound to 32 bit numbers, Integers can hold really big numbers
+-- Float are floating point numbers with single precision, doubles have double precision
+-- Bool True of False
+-- Char represents a single character. A list of characters is a string of a list of characters
+-- a is a type variable. Can be of any type. Polymorphic functions are functions that have type variables.
+-- Normally types start with a capital letter, small letter indicate type variables
+--

@@ -1,0 +1,9 @@
+-- :t Everything before => symbol is a class constraint
+-- A type class is a sort of interface that defines some behavior. If a type is a part of a typeclass that means that it supports and implements the behaviour the typeclass describes.
+-- Ord is for types that have an ordering (LT, GT or EQ)
+-- members of show can be represented as strings
+-- Read can takes a string and returns a type which it is of
+-- read "5" :: Int -> Explicity type annotation of what the type of output should be.
+-- read "4" + 2 and read "True" || False Read function knows to convert it to a int and bool respectively due to the arguments that come after it
+-- Enum members are sequentially ordered types. They also have defined successor and predecesors
+-- And a bunch of other constraints

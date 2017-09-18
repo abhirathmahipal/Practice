@@ -51,3 +51,4 @@ conanO'Brien = "It's a-me, Conan O'Brien!"
 -- removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
 -- lists don't have to be of the same length, 1 or infinite doesn't matter but you can place some restrictions with tuples. They can be modeled into strict types
 -- zip takes two lists and zips them together. If they aren't of the same length, the longer one just gets cut off
+-- ==, +, * etc are all operators. they follow infix notation by default. If finding it's type or passing to another function, surround it with parentheses
