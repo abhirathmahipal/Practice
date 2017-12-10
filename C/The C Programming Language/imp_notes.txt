@@ -69,7 +69,7 @@ When chars are converted into ints, the language does not specify whether variab
 
 For portability specify signed or unsigned if non character data is to be stored in char variables.
 
-In some machines chars may be promoted to int by adding zeroes to the end. Hence they always remain positive. Read the point above. Give an int the modifier unsigned in case you want to use it as a char.
+In some machines chars may be promoted to int by adding zeroes to the end. Hence they always remain positive. Read the point above. Give an int the modifier unsigned in case you want to use it as a char. (You can read about sign extensions somewhere else, the most significant bit is just copied to fill the extra bits so that the values remains the same irrespective of it being a positive or a negative number)
 
 Normally the "lower" type is promoted to the "higher" type. char and shorts to int, ints to double, ints to long double etc. However floats are not converted to double. the main reason they use floats is to save storage in large arrays or to save time since doubles are more resource intensive.
 
