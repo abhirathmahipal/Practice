@@ -48,3 +48,34 @@ splitAt 3 "heyman"
 
 -- dropWhile is similar to takeWhile but keeps dropping till the predicate is true
 
+-- and loads of other functions
+
+-- Data.Char
+-- isControl (control character)
+-- isSpace (tabs, whitespaces etc)
+-- isUpper etc
+-- generalCategory (returns what kind of character it is)
+
+-- Data.Map
+-- Dictionaries or association lists
+-- Map.fromList
+-- Duplicates are discarded
+Map.fromList [(1,2), (3,4), (3,2), (5,5)]
+[(1,2), (3,2), (5,5)] -- duplicates gone
+Map.fromList :: (Ord k) => [(k, v)] -> Map.Map k v  
+
+-- keys should be orderable as it creates a tree structure under the hood
+-- maps also have functions like lookup, map and filter, toList etc
+
+-- Data.Set
+-- unique elements only, internally implemented with trees
+-- finding for membership, deletion are faster than lists
+
+-- name clashes a lot with Prelude and Data.List
+import qualified Data.Set as Set
+-- again functions like map, filter, intersection etc
+
+-- Making your own modules
+-- Export only the ones you want, qualified imports etc
+
+
